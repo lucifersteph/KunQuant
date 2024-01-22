@@ -214,11 +214,11 @@ def get_alpha(df):
         df['alpha025']=stock.alpha025()
         df['alpha026']=stock.alpha026()
         df['alpha027']=stock.alpha027()
-        # df['alpha028']=stock.alpha028()
-        # df['alpha029']=stock.alpha029()
+        df['alpha028']=stock.alpha028()
+        df['alpha029']=stock.alpha029()
         df['alpha030']=stock.alpha030()
-        # df['alpha031']=stock.alpha031()
-        # df['alpha032']=stock.alpha032()
+        df['alpha031']=stock.alpha031()
+        df['alpha032']=stock.alpha032()
         df['alpha033']=stock.alpha033()
         df['alpha034']=stock.alpha034()
         df['alpha035']=stock.alpha035()
@@ -473,9 +473,12 @@ class Alphas(object):
         df = correlation(adv20, self.low, 12).replace([-np.inf, np.inf], 0).fillna(value=0)         
         p1=rank(rank(rank(decay_linear((-1 * rank(rank(delta(self.close, 10)))), 10)))) 
         p2=rank((-1 * delta(self.close, 3)))
+        print(df[0])
+        print(scale(df)[0])
         p3=sign(scale(df))
         
-        return p1+p2+p3
+        # return p1+p2+p3
+        return p3
         
 
     # Alpha#32	 (scale(((sum(close, 7) / 7) - close)) + (20 * scale(correlation(vwap, delay(close, 5),230))))

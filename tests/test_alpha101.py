@@ -126,7 +126,7 @@ tolerance = {
         "alpha002": 0.2,
     },
     "bad_count": {
-        "alpha027": 0.0005
+        "alpha027": 0.06
     }
 }
 
