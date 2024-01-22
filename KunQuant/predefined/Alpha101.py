@@ -228,10 +228,10 @@ def alpha031(self: AllData):
     adv20 = sma(self.volume, 20)
     df = correlation(adv20, self.low, 12)
     df = SetInfOrNanToZero(df)   
-    # p1=rank(rank(rank(DecayLinear((-1 * rank(rank(delta(self.close, 10)))), 10)))) 
+    p1=rank(rank(rank(DecayLinear((-1 * rank(rank(delta(self.close, 10)))), 10)))) 
     p2=rank((-1 * delta(self.close, 3)))
     p3=sign(scale(df))
-    Output(p3, "alpha031")
+    Output(p1+p2+p3, "alpha031")
     
 # Alpha#32	 (scale(((sum(close, 7) / 7) - close)) + (20 * scale(correlation(vwap, delay(close, 5),230))))
 def alpha032(self):
